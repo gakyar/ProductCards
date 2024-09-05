@@ -1,0 +1,69 @@
+/* Ürünleri grid yapısında düzenleyin */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Küçük ekranlar için 1 sütun */
+  gap: 20px;
+  padding: 20px;
+
+  @media (min-width: 576px) { /* sm ekranlar için 1 sütun */
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (min-width: 768px) { /* md ekranlar için 2 sütun */
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 992px) { /* lg ekranlar için 3 sütun */
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1200px) { /* xl ekranlar için 5 sütun */
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Kart stilini güncelleyin */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 100%; /* Kartın genişliğini %100 yaparak responsif hale getirin */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: relative;
+
+  .discount-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+
+    .original {
+      text-decoration: line-through;
+      color: red;
+    }
+  }
+
+  .rating {
+    margin: 10px 0;
+  }
+
+  img {
+    width: 100%;
+    height: 200px; /* Resimlerin yüksekliğini sabitleyin */
+    object-fit: cover; /* Resimlerin kutu içinde düzgün şekilde yerleşmesini sağlar */
+  }
+}
