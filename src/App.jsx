@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import ProductCard from './components/ProductCard';
+import ProductCard from './components/ProductCard.jsx';
 
 const App = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('/data.json')
+    fetch('/data1.json')
       .then((response) => response.json())
       .then((data) => setProducts(data));
   }, []);
