@@ -1,24 +1,18 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
-const ProductCard = ({ title, image, price, discountedPrice, discount, rating }) => {
-  const renderStars = () => {
-    return Array(5).fill(0).map((_, index) => (
-      index < rating ? <AiFillStar key={index} color="green" /> : <AiOutlineStar key={index} />
-    ));
-  };
+const ProductCard = ({ image, name, category, price }) => {
+  
 
   return (
     <Card className="product-card">
-      {discount && <span className="discount-badge">{discount}</span>}
-      <Card.Img variant="top" src={image} />
+      {category && <span className="discount-badge">{category}</span>}
+      <Card.Img variant="top" src={`/image/${image}`} />
       <Card.Body>
-        <div className="rating">{renderStars()}</div>
-        <Card.Title>{title}</Card.Title>
+        
+        <Card.Title>{name}</Card.Title>
         <div className="price">
-          <span className="discounted">${discountedPrice}</span>
-          {price !== discountedPrice && <span className="original">${price}</span>}
+        ${price}
         </div>
       </Card.Body>
     </Card>
